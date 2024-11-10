@@ -111,7 +111,7 @@ elif app_mode == "Prediction":
     # Initialize session state for tracking the selected date, prediction, and input hash
     if "last_prediction_date" not in st.session_state:
         st.session_state.last_prediction_date = None
-        st.session_state.prediction = None
+        st.session_state.predicti0n = None
         st.session_state.last_input_hash = None
 
     # Encode the input values
