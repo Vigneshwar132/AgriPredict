@@ -129,7 +129,7 @@ elif app_mode=="Prediction":
             
             # Make the prediction using the trained model, double it, and add a random value
             prediction = model.predict(input_df) * 1.5
-            corr = prediction * 0.1
+            corr = int(prediction * 0.1)
             prediction = prediction + random.randint(-corr,corr)
             
             # Store prediction in session state
