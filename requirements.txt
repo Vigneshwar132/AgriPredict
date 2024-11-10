@@ -1,2 +1,10 @@
-plotly==5.14.1
-scikit-learn==1.2.2
+streamlit
+pandas
+pickle-mixin
+plotly
+Pillow
+datetime
+numpy
+matplotlib
+seaborn
+scikit-learn
