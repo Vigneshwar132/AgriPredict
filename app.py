@@ -133,12 +133,11 @@ elif app_mode=="Prediction":
             prediction = prediction + random.randint(-corr,corr)
             
             # Store prediction in session state
-            st.session_state.prediction = prediction
-            
+            st.session_state.prediction = prediction[0]
             # Display the predicted price
-            st.success(f'The predicted price is {prediction[0]:.2f}')
+            st.success(f'The predicted price is {st.session_state.prediction:.2f}')
         else:
-            if 'prediction' in st.session_state:
+        if st.session_state.prediction is not None:
                 st.success(f'The predicted price is {st.session_state.prediction:.2f}')
             else:
                 st.warning('Prediction is not available. Please make sure to input the required data.')
