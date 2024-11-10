@@ -137,7 +137,7 @@ elif app_mode=="Prediction":
             # Display the predicted price
             st.success(f'The predicted price is {st.session_state.prediction:.2f}')
         else:
-        if st.session_state.prediction is not None:
+            if st.session_state.prediction is not None:
                 st.success(f'The predicted price is {st.session_state.prediction:.2f}')
             else:
                 st.warning('Prediction is not available. Please make sure to input the required data.')
