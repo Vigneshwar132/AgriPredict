@@ -82,14 +82,6 @@ if app_mode=='Home':
     color=st.selectbox("Select the color",df.columns)
     fig=px.scatter_3d(df,x=x,y=y,z=z,color=color)
     st.plotly_chart(fig,use_container_width=True)
-    
-
-import hashlib
-import streamlit as st
-import pickle
-import pandas as pd
-from datetime import datetime
-import random
 
 elif app_mode == "Prediction":
     # Define the Streamlit app
