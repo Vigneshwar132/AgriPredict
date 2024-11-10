@@ -133,7 +133,7 @@ elif app_mode=="Prediction":
             prediction = prediction + random.randint(-corr,corr)
             
             # Store prediction in session state
-            st.session_state.prediction = prediction[0]
+            st.session_state.prediction = prediction
             
             # Display the predicted price
             st.success(f'The predicted price is {prediction[0]:.2f}')
