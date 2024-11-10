@@ -151,7 +151,7 @@ elif app_mode == "Prediction":
             predictions = model.predict(input_df)
 
             # Store prediction in session state
-            st.session_state.prediction = prediction[0]
+            st.session_state.prediction = prediction
 
             # Display the predicted price
             st.success(f'The predicted price is {st.session_state.prediction:.2f}')
