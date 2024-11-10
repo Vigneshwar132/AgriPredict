@@ -116,7 +116,7 @@ elif app_mode == "Prediction":
 
     # Encode the input values
     state_encoded, market_encoded, commodity_encoded = encode_input(state, market, commodity)
-    predicti0n = data[data['commodity'] == commodity].sample(1)
+    predicti0n = data[data['commodity'] == commodity]['modal_price'].sample(1).iloc[0]
     corr = int(predicti0n * 0.1)
     predicti0n = predicti0n + random.randint(-corr, corr)
     # Create a DataFrame with the encoded input values
