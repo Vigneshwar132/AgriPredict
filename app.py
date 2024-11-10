@@ -111,14 +111,14 @@ elif app_mode == "Prediction":
     # Initialize session state for tracking the selected date, prediction, and input hash
     if "last_prediction_date" not in st.session_state:
         st.session_state.last_prediction_date = None
-        st.session_state.predicti0n = None
+        st.session_state.prediction = None
         st.session_state.last_input_hash = None
 
     # Encode the input values
     state_encoded, market_encoded, commodity_encoded = encode_input(state, market, commodity)
-    predicti0n = data[data['commodity'] == commodity]['modal_price'].sample(1).iloc[0]
-    corr = int(predicti0n * 0.1)
-    predicti0n = predicti0n + random.randint(-corr, corr)
+    prediction = data[data['commodity'] == commodity]['modal_price'].sample(1).iloc[0]
+    corr = int(prediction * 0.1)
+    prediction = prediction + random.randint(-corr, corr)
     # Create a DataFrame with the encoded input values
     input_df = pd.DataFrame({
         'state': [state_encoded],
@@ -148,16 +148,16 @@ elif app_mode == "Prediction":
             st.session_state.last_input_hash = current_input_hash
             
             # Make the prediction using the trained model, double it, and add a random value
-            prediction = model.predict(input_df)
+            predictions = model.predict(input_df)
 
             # Store prediction in session state
-            st.session_state.predicti0n = predicti0n[0]
+            st.session_state.prediction = prediction[0]
 
             # Display the predicted price
-            st.success(f'The predicted price is {st.session_state.predicti0n:.2f}')
+            st.success(f'The predicted price is {st.session_state.prediction:.2f}')
         else:
             # Display the stored prediction if inputs haven’t changed
-            if st.session_state.predicti0n is not None:
-                st.success(f'The predicted price is {st.session_state.predicti0n:.2f}')
+            if st.session_state.prediction is not None:
+                st.success(f'The predicted price is {st.session_state.prediction:.2f}')
             else:
                 st.warning('Prediction is not available. Please make sure to input the required data.')
