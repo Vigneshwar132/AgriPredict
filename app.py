@@ -138,5 +138,7 @@ elif app_mode=="Prediction":
             # Display the predicted price
             st.success(f'The predicted price is {prediction[0]:.2f}')
         else:
-            # Display the stored prediction if the date hasn't changed
-            st.success(f'The predicted price is {st.session_state.prediction:.2f}')
+            if 'prediction' in st.session_state:
+                st.success(f'The predicted price is {st.session_state.prediction:.2f}')
+            else:
+                st.warning('Prediction is not available. Please make sure to input the required data.')
